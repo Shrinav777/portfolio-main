@@ -38,10 +38,22 @@
     ]
   },
   "navigation": [
-    { "name": "About", "href": "#about" },
-    { "name": "Services", "href": "#services" },
-    { "name": "Projects", "href": "#projects" },
-    { "name": "Contact", "href": "#contact" }
+    {
+      "name": "About",
+      "href": "#about"
+    },
+    {
+      "name": "Services",
+      "href": "#services"
+    },
+    {
+      "name": "Projects",
+      "href": "#projects"
+    },
+    {
+      "name": "Contact",
+      "href": "#contact"
+    }
   ],
   "services": [
     {
@@ -49,7 +61,12 @@
       "icon": "code",
       "title": "Web Development",
       "description": "Custom websites and web applications built with cutting-edge technologies for optimal performance and user experience.",
-      "features": ["React & Next.js", "TypeScript", "Performance Optimized", "SEO Ready"],
+      "features": [
+        "React & Next.js",
+        "TypeScript",
+        "Performance Optimized",
+        "SEO Ready"
+      ],
       "gradient": "from-lime-400 to-green-500",
       "hoverColor": "hover:bg-lime-50"
     },
@@ -58,7 +75,12 @@
       "icon": "smartphone",
       "title": "App Development",
       "description": "Native and cross-platform mobile applications that deliver seamless experiences across all devices.",
-      "features": ["React Native", "Flutter", "iOS & Android", "App Store Ready"],
+      "features": [
+        "React Native",
+        "Flutter",
+        "iOS & Android",
+        "App Store Ready"
+      ],
       "gradient": "from-blue-400 to-cyan-500",
       "hoverColor": "hover:bg-blue-50"
     },
@@ -67,7 +89,12 @@
       "icon": "trending-up",
       "title": "Digital Marketing",
       "description": "Data-driven marketing strategies that boost your online presence and drive measurable business growth.",
-      "features": ["SEO & SEM", "Social Media", "Analytics", "Growth Hacking"],
+      "features": [
+        "SEO & SEM",
+        "Social Media",
+        "Analytics",
+        "Growth Hacking"
+      ],
       "gradient": "from-purple-400 to-pink-500",
       "hoverColor": "hover:bg-purple-50"
     },
@@ -76,183 +103,251 @@
       "icon": "code",
       "title": "Custom Software Development",
       "description": "Tailored software solutions built from scratch to meet your unique business requirements and scale with your growth.",
-      "features": ["Enterprise Solutions", "API Development", "Database Design", "System Integration"],
+      "features": [
+        "Enterprise Solutions",
+        "API Development",
+        "Database Design",
+        "System Integration"
+      ],
       "gradient": "from-orange-400 to-red-500",
       "hoverColor": "hover:bg-orange-50"
     }
   ],
   "projects": [
-  {
-    "id": 1,
-    "title": "Heart Disease Risk Prediction Model",
-    "category": "AI/Healthcare",
-    "client": "Internal Research Project",
-    "duration": "6 months",
-    "team": "5 developers",
-    "year": "2024",
-    "status": "Prototype",
-    "description": "An AI-based diagnostic tool to predict the 10-year risk of heart disease using patient health data. Built with interactive GUI and real-time prediction support.",
-    "challenge": "Enable early detection of heart disease risk through accessible, personalized, and data-driven solutions.",
-    "solution": "Implemented ML models like Logistic Regression and Decision Trees with a real-time GUI built using Tkinter and OpenCV for visual risk display.",
-    "results": [
-      "Accurate 10-year heart disease risk prediction",
-      "Interactive UI with animated risk gauges",
-      "Supports preventive cardiology"
-    ],
-    "technologies": ["Python", "Pandas", "NumPy", "Scikit-learn", "Tkinter", "OpenCV", "Matplotlib", "Seaborn"],
-    "features": [
-      "Real-time ML-based prediction",
-      "User-friendly GUI with animated visuals",
-      "Health data input forms"
-    ],
-    "image": "/Heart.png",
-    "gallery": ["/Heart.png","/Heart.mp4",  "/Heart-3.png", "/Heart-4.png"],
-    "metrics": { "logo": "Model", "year": "2024", "rating": "4.6" },
-    "color": "rose",
-    "bgGradient": "from-rose-100 to-pink-100",
-    "testimonial": null,
-    "liveUrl": "",
-    "githubUrl": ""
-  },
-  {
-    "id": 2,
-    "title": "Pet Care System - Furry FriendCare",
-    "category": "Web Platform",
-    "client": "Furry FriendCare",
-    "duration": "5 months",
-    "team": "6 developers",
-    "year": "2024",
-    "status": "Live",
-    "description": "Responsive website for a pet care service provider with booking, service highlights, and testimonials to support pet owners.",
-    "challenge": "Create an intuitive, appealing, and functional website for pet owners to connect with care providers.",
-    "solution": "Developed a responsive frontend with booking systems, team showcases, and testimonials; backend built using PHP/Node.js with form handling and mail services.",
-    "results": [],
-    "technologies": ["HTML5", "CSS3", "JavaScript", "Bootstrap", "Tailwind CSS", "jQuery", "PHP", "Node.js", "MySQL", "MongoDB"],
-    "features": [
-      "Booking form with email notifications",
-      "Service highlights and pricing cards",
-      "Team member showcase",
-      "Responsive and mobile-friendly layout"
-    ],
-    "image": "/PET.png",
-    "gallery": ["/PET.png","/Pet_care.png", "/Pet1.png", "/Pet2.png"],
-    "metrics": { "logo": "Web", "year": "2024", "rating": "4.4" },
-    "color": "yellow",
-    "bgGradient": "from-yellow-100 to-orange-100",
-    "testimonial": null,
-    "liveUrl": "",
-    "githubUrl": ""
-  },
-  {
-    "id": 3,
-    "title": "Spam Prediction Browser Extension",
-    "category": "Browser Extension",
-    "client": "Internal Project",
-    "duration": "4 months",
-    "team": "4 developers",
-    "year": "2024",
-    "status": "Prototype",
-    "description": "Browser extension using machine learning to detect spam emails in real-time, providing inbox protection and filtering.",
-    "challenge": "Identify and block spam emails before they reach users through an intuitive interface.",
-    "solution": "Integrated a lightweight ML model into a browser extension framework, providing inline predictions within email clients.",
-    "results": [],
-    "technologies": ["JavaScript", "Machine Learning", "Browser Extension APIs"],
-    "features": [
-      "Spam detection using ML",
-      "Real-time prediction in inbox",
-      "Lightweight browser extension"
-    ],
-    "image": "/Spam.png",
-    "gallery": ["/Spam.png"],
-    "metrics": { "logo": "Web", "year": "2024", "rating": "4.7" },
-    "color": "blue",
-    "bgGradient": "from-blue-100 to-sky-100",
-    "testimonial": null,
-    "liveUrl": "",
-    "githubUrl": ""
-  },
-  {
-    "id": 4,
-    "title": "Student Management System",
-    "category": "Admin Application",
-    "client": "Educational Institutions",
-    "duration": "6 months",
-    "team": "6 developers",
-    "year": "2024",
-    "status": "Live",
-    "description": "System to manage student data with support for record entry, search, updates, and clean UI, suitable for schools and institutes.",
-    "challenge": "Simplify and digitize student data management processes.",
-    "solution": "Developed a structured and user-friendly desktop/web app with add, search, update, and delete functionalities for student records.",
-    "results": [],
-    "technologies": ["Python", "Java", "C++", "MySQL", "SQLite"],
-    "features": [
-      "Student record management",
-      "Search and filter functions",
-      "Update/delete support",
-      "Clean menu-based UI"
-    ],
-    "image": "/StudentManagement1.jpeg",
-    "gallery": [],
-    "metrics": { "logo": "App", "year": "2024", "rating": "4.5" },
-    "color": "teal",
-    "bgGradient": "from-teal-100 to-cyan-100",
-    "testimonial": null,
-    "liveUrl": "",
-    "githubUrl": ""
-  },
-  {
-  "id": 5,
-  "title": "Virtual Art Gallery",
-  "category": "Art & Exhibition Platform",
-  "client": "Curated Arts Collective",
-  "duration": "3 months",
-  "team": "4 developers",
-  "year": "2025",
-  "status": "In Progress",
-  "description": "A visually immersive online platform to showcase, manage, and purchase curated artworks from independent artists and galleries.",
-  "challenge": "Create a high-performance image-first platform that allows users to browse and manage digital exhibitions with minimal latency and high visual fidelity.",
-  "solution": "Built a React + Tailwind frontend with seamless image loading, implemented secure image uploads via Multer, role-based access for curators, and an Express backend with PostgreSQL to manage artwork metadata and user submissions.",
-  "results": [
-    "Optimized image delivery using responsive components and lazy loading.",
-    "Implemented curator and visitor roles with access control.",
-    "Enabled seamless CRUD operations on artwork data."
+    {
+      "id": 1,
+      "title": "Heart Disease Risk Prediction Model",
+      "category": "AI/Healthcare",
+      "client": "Internal Research Project",
+      "duration": "6 months",
+      "team": "5 developers",
+      "year": "2024",
+      "status": "Prototype",
+      "description": "An AI-based diagnostic tool to predict the 10-year risk of heart disease using patient health data. Built with interactive GUI and real-time prediction support.",
+      "challenge": "Enable early detection of heart disease risk through accessible, personalized, and data-driven solutions.",
+      "solution": "Implemented ML models like Logistic Regression and Decision Trees with a real-time GUI built using Tkinter and OpenCV for visual risk display.",
+      "results": [
+        "Accurate 10-year heart disease risk prediction",
+        "Interactive UI with animated risk gauges",
+        "Supports preventive cardiology"
+      ],
+      "technologies": [
+        "Python",
+        "Pandas",
+        "NumPy",
+        "Scikit-learn",
+        "Tkinter",
+        "OpenCV",
+        "Matplotlib",
+        "Seaborn"
+      ],
+      "features": [
+        "Real-time ML-based prediction",
+        "User-friendly GUI with animated visuals",
+        "Health data input forms"
+      ],
+      "image": "/Heart.png",
+      "gallery": [
+        "/Heart.png",
+        "/Heart.mp4",
+        "/Heart-3.png",
+        "/Heart-4.png"
+      ],
+      "metrics": {
+        "logo": "Model",
+        "year": "2024",
+        "rating": "4.6"
+      },
+      "color": "rose",
+      "bgGradient": "from-rose-100 to-pink-100",
+      "testimonial": null,
+      "liveUrl": "",
+      "githubUrl": ""
+    },
+    {
+      "id": 2,
+      "title": "Pet Care System - Furry FriendCare",
+      "category": "Web Platform",
+      "client": "Furry FriendCare",
+      "duration": "5 months",
+      "team": "6 developers",
+      "year": "2024",
+      "status": "Live",
+      "description": "Responsive website for a pet care service provider with booking, service highlights, and testimonials to support pet owners.",
+      "challenge": "Create an intuitive, appealing, and functional website for pet owners to connect with care providers.",
+      "solution": "Developed a responsive frontend with booking systems, team showcases, and testimonials; backend built using PHP/Node.js with form handling and mail services.",
+      "results": [],
+      "technologies": [
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "Bootstrap",
+        "Tailwind CSS",
+        "jQuery",
+        "PHP",
+        "Node.js",
+        "MySQL",
+        "MongoDB"
+      ],
+      "features": [
+        "Booking form with email notifications",
+        "Service highlights and pricing cards",
+        "Team member showcase",
+        "Responsive and mobile-friendly layout"
+      ],
+      "image": "/PET.png",
+      "gallery": [
+        "/PET.png",
+        "/Pet_care.png",
+        "/Pet1.png",
+        "/Pet2.png"
+      ],
+      "metrics": {
+        "logo": "Web",
+        "year": "2024",
+        "rating": "4.4"
+      },
+      "color": "yellow",
+      "bgGradient": "from-yellow-100 to-orange-100",
+      "testimonial": null,
+      "liveUrl": "",
+      "githubUrl": ""
+    },
+    {
+      "id": 3,
+      "title": "Spam Prediction Browser Extension",
+      "category": "Browser Extension",
+      "client": "Internal Project",
+      "duration": "4 months",
+      "team": "4 developers",
+      "year": "2024",
+      "status": "Prototype",
+      "description": "Browser extension using machine learning to detect spam emails in real-time, providing inbox protection and filtering.",
+      "challenge": "Identify and block spam emails before they reach users through an intuitive interface.",
+      "solution": "Integrated a lightweight ML model into a browser extension framework, providing inline predictions within email clients.",
+      "results": [],
+      "technologies": [
+        "JavaScript",
+        "Machine Learning",
+        "Browser Extension APIs"
+      ],
+      "features": [
+        "Spam detection using ML",
+        "Real-time prediction in inbox",
+        "Lightweight browser extension"
+      ],
+      "image": "/Spam.png",
+      "gallery": [
+        "/Spam.png"
+      ],
+      "metrics": {
+        "logo": "Web",
+        "year": "2024",
+        "rating": "4.7"
+      },
+      "color": "blue",
+      "bgGradient": "from-blue-100 to-sky-100",
+      "testimonial": null,
+      "liveUrl": "",
+      "githubUrl": ""
+    },
+    {
+      "id": 4,
+      "title": "Shree Aluminium",
+      "category": "Commercial Business",
+      "client": "commercial Business",
+      "duration": "6 months",
+      "team": "2 developers",
+      "year": "2025",
+      "status": "Live",
+      "description": "Shree Aluminium is a commercial business application designed to manage aluminum products and inventory.",
+      "challenge": "The application needed a robust system for managing aluminum products with inventory tracking and sales management.",
+      "solution": "Providing quality aluminum products with inventory tracking and sales management.",
+      "results": [],
+      "technologies": [
+        "Python",
+        "Java",
+        "C++",
+        "MySQL",
+        "SQLite"
+      ],
+      "features": [
+        "Supply of a wide range of aluminium curtain and blind sections.",
+        "Custom bulk orders tailored for manufacturers' needs",
+        "Reliable delivery with our trusted transport partners",
+        "Dedicated inquiry support and sample dispatch on request"
+      ],
+      "image": "/Page-1.png",
+      "gallery": [
+        "/Page-2.png",
+        "/Page-3.png"
+      ],
+      "metrics": {
+        "logo": "App",
+        "year": "2024",
+        "rating": "4.5"
+      },
+      "color": "teal",
+      "bgGradient": "from-teal-100 to-cyan-100",
+      "testimonial": null,
+      "liveUrl": "",
+      "githubUrl": ""
+    },
+    {
+      "id": 5,
+      "title": "ServiceDesk CRM",
+      "category": "ServiceDesk CRM",
+      "client": "Company Oriented Project",
+      "duration": "3 months",
+      "team": "1 developer",
+      "year": "2026",
+      "status": "In Progress",
+      "description": "ServiceDesk CRM is a comprehensive customer relationship management platform designed to streamline sales processes, enhance customer engagement, and drive business growth through intelligent automation and data-driven insights.",
+      "challenge": "Designing a robust and scalable system that handles complex workflows, multiple user roles, and integrates with various data sources while maintaining high performance and user experience.",
+      "solution": "Developed a production-grade customer service management platform with role-based access control (Admin, Agent, User) supporting ticket creation, assignment, and real-time status tracking  ",
+      "results": [
+        "Optimized image delivery using responsive components and lazy loading.",
+        "Implemented curator and visitor roles with access control.",
+        "Enabled seamless CRUD operations on artwork data."
+      ],
+      "technologies": [
+        "React",
+        "Tailwind CSS",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Socket.IO",
+        "OPEN AI API",
+        "JWT Auth",
+        "Postman"
+      ],
+      "features": [
+        "Implemented real-time notifications using Socket.IO for instant ticket updates and user collaboration across multiple connected clients",
+        "Integrated OpenAI API to generate AI-powered smart replies and analytics, reducing response time by 40% through intelligent automation",
+        "Built secure authentication system with JWT tokens, password reset functionality via email (SendGrid), and bcrypt password encryption",
+        "Deployed full-stack application with MongoDB Atlas database, Vercel frontend hosting, and Render backend deployment, achieving 99.9% uptime"
+      ],
+      "image": "/Servicedesk.jpg",
+      "gallery": [
+        "/Servicedesk.jpg",
+        "/admin-home-page.png",
+        "/Ticket-update.png",
+        "/All-tickets.png",
+        "/Analytics-dashboard.png",
+        "/Create-ticket.png"
+      ],
+      "metrics": {
+        "logo": "Web",
+        "year": "2025",
+        "rating": "4.5"
+      },
+      "color": "rose",
+      "bgGradient": "from-rose-100 to-pink-100",
+      "testimonial": null,
+      "liveUrl": "",
+      "githubUrl": ""
+    }
   ],
-  "technologies": [
-    "React",
-    "Tailwind CSS",
-    "Node.js",
-    "Express",
-    "PostgreSQL",
-    "Multer",
-    "Sequelize",
-    "JWT Auth"
-  ],
-  "features": [
-    "Artwork submission and moderation",
-    "Responsive image gallery layout",
-    "Role-based login system (curator, visitor)",
-    "Secure image upload with validation",
-    "Artwork filtering by artist, medium, and era",
-    "Visitor interaction via likes and comments"
-  ],
-  "image": "/AG_Thumbnail.png",
-  "gallery":["/AG_Thumbnail.png","/AG1.png", "/AG2.png", "/AG3.png", "/AG4.png","/AG5.png","/AG6.png","/AG7.png"],
-  "metrics": {
-    "logo": "Web",
-    "year": "2025",
-    "rating": "4.5"
-  },
-  "color": "rose",
-  "bgGradient": "from-rose-100 to-pink-100",
-  "testimonial": null,
-  "liveUrl": "",
-  "githubUrl": ""
-}
-
-
-]
-
-,
   "testimonials": [
     {
       "id": 1,
@@ -338,8 +433,18 @@
   "footer": {
     "description": "Where Imagination Meets Innovation stories. We create exceptional experiences that drive growth and inspire innovation.",
     "sections": {
-      "services": ["Web Development", "App Development", "Digital Marketing", "Branding & Design"],
-      "company": ["About Us", "Our Team", "Careers", "Blog"]
+      "services": [
+        "Web Development",
+        "App Development",
+        "Digital Marketing",
+        "Branding & Design"
+      ],
+      "company": [
+        "About Us",
+        "Our Team",
+        "Careers",
+        "Blog"
+      ]
     },
     "copyright": "© 2024 Shrinav. All rights reserved. Empowering digital excellence."
   }
