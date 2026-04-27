@@ -137,7 +137,7 @@ export default function ProjectsGrid({ data = { projects: [] } }) {
 
                   <button
                     className="w-full bg-primary hover:bg-primary-dark text-white font-semibold px-4 py-3 rounded-2xl transition-all duration-300 text-sm flex items-center justify-center group/btn"
-                    onClick={() => (window.location.href = `/project/${project.id}`)}
+                    onClick={() => (window.location.href = `/start-project/${project.id}`)}
                   >
                     View Project
                     <ArrowRightIcon className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
