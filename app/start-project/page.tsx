@@ -26,6 +26,14 @@ import {
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
+import siteData from "@/data/siteData.json"
+
+export async function generateStaticParams() {
+  // This tells Next.js exactly which IDs exist so it can pre-build the HTML files
+  return siteData.projects.map((project: any) => ({
+    id: project.id.toString(),
+  }))
+}
 
 // Enhanced Floating Label Input with validation
 const FloatingLabelInput = ({ label, type = "text", error, required = false, ...props }: any) => {
@@ -36,9 +44,8 @@ const FloatingLabelInput = ({ label, type = "text", error, required = false, ...
     <div className="relative">
       <Input
         type={type}
-        className={`bg-white border-2 ${
-          error ? "border-red-300 focus:border-red-500" : "border-gray-200 focus:border-lime-500"
-        } rounded-2xl py-4 px-4 text-base peer placeholder-transparent transition-colors duration-200`}
+        className={`bg-white border-2 ${error ? "border-red-300 focus:border-red-500" : "border-gray-200 focus:border-lime-500"
+          } rounded-2xl py-4 px-4 text-base peer placeholder-transparent transition-colors duration-200`}
         placeholder=" "
         onFocus={() => setFocused(true)}
         onBlur={(e) => {
@@ -48,9 +55,8 @@ const FloatingLabelInput = ({ label, type = "text", error, required = false, ...
         {...props}
       />
       <motion.label
-        className={`absolute left-4 pointer-events-none transition-all duration-200 ${
-          error ? "text-red-500" : focused ? "text-lime-600" : "text-gray-500"
-        }`}
+        className={`absolute left-4 pointer-events-none transition-all duration-200 ${error ? "text-red-500" : focused ? "text-lime-600" : "text-gray-500"
+          }`}
         animate={{
           top: focused || hasValue ? "0.5rem" : "1rem",
           fontSize: focused || hasValue ? "0.75rem" : "1rem",
@@ -283,9 +289,8 @@ const ProjectInquiryForm = () => {
                 <select
                   value={formData.projectType}
                   onChange={(e) => handleChange("projectType", e.target.value)}
-                  className={`w-full bg-white border-2 ${
-                    errors.projectType ? "border-red-300 focus:border-red-500" : "border-gray-200 focus:border-lime-500"
-                  } rounded-2xl py-4 px-4 text-base transition-colors duration-200 appearance-none cursor-pointer`}
+                  className={`w-full bg-white border-2 ${errors.projectType ? "border-red-300 focus:border-red-500" : "border-gray-200 focus:border-lime-500"
+                    } rounded-2xl py-4 px-4 text-base transition-colors duration-200 appearance-none cursor-pointer`}
                 >
                   <option value="">Select Project Type *</option>
                   <option value="web-development">Web Development</option>
@@ -358,9 +363,8 @@ const ProjectInquiryForm = () => {
                 rows={6}
                 value={formData.description}
                 onChange={(e) => handleChange("description", e.target.value)}
-                className={`bg-white border-2 ${
-                  errors.description ? "border-red-300 focus:border-red-500" : "border-gray-200 focus:border-lime-500"
-                } rounded-2xl resize-none text-base transition-colors duration-200`}
+                className={`bg-white border-2 ${errors.description ? "border-red-300 focus:border-red-500" : "border-gray-200 focus:border-lime-500"
+                  } rounded-2xl resize-none text-base transition-colors duration-200`}
                 maxLength={1000}
               />
               <div className="absolute bottom-4 right-4 text-sm text-gray-400">{formData.description.length}/1000</div>
@@ -419,9 +423,8 @@ const ProjectInquiryForm = () => {
           <Button
             type="submit"
             disabled={isSubmitting}
-            className={`w-full ${
-              isSubmitting ? "bg-gray-400 cursor-not-allowed" : "bg-lime-500 hover:bg-lime-600"
-            } text-white font-semibold py-5 rounded-2xl shadow-lg hover:shadow-xl hover:shadow-lime-500/25 transition-all duration-300 group text-lg`}
+            className={`w-full ${isSubmitting ? "bg-gray-400 cursor-not-allowed" : "bg-lime-500 hover:bg-lime-600"
+              } text-white font-semibold py-5 rounded-2xl shadow-lg hover:shadow-xl hover:shadow-lime-500/25 transition-all duration-300 group text-lg`}
           >
             {isSubmitting ? (
               <>

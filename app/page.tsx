@@ -285,13 +285,13 @@ const ScrollFollowingElement = () => {
           transition={{ duration: 1, delay: 0.3 }}
         >
           <div className="relative">
-            <motion.div 
-              className="absolute inset-0 bg-gradient-to-br from-primary-200 to-primary-300 rounded-[3rem] transform rotate-3 scale-110" 
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-br from-primary-200 to-primary-300 rounded-[3rem] transform rotate-3 scale-110"
               animate={{ rotate: [3, 5, 3], scale: [1.1, 1.15, 1.1] }}
               transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
             />
-            <motion.div 
-              className="absolute inset-0 bg-gradient-to-br from-secondary-200 to-secondary-300 rounded-[3rem] transform -rotate-2 scale-105" 
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-br from-secondary-200 to-secondary-300 rounded-[3rem] transform -rotate-2 scale-105"
               animate={{ rotate: [-2, -4, -2], scale: [1.05, 1.1, 1.05] }}
               transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
             />
@@ -392,9 +392,8 @@ const FloatingLabelInput = ({ label, type = "text", error, required = false, ...
     <div className="relative w-full">
       <Input
         type={type}
-        className={`w-full bg-white border-2 ${
-          error ? "border-red-300 focus:border-red-500" : "border-gray-200 focus:border-primary"
-        } rounded-xl sm:rounded-2xl py-4 sm:py-5 px-3 sm:px-4 text-sm sm:text-base peer placeholder-transparent transition-colors duration-200 text-gray-800 mt-2`}
+        className={`w-full bg-white border-2 ${error ? "border-red-300 focus:border-red-500" : "border-gray-200 focus:border-primary"
+          } rounded-xl sm:rounded-2xl py-4 sm:py-5 px-3 sm:px-4 text-sm sm:text-base peer placeholder-transparent transition-colors duration-200 text-gray-800 mt-2`}
         placeholder=" "
         onFocus={() => setFocused(true)}
         onBlur={(e) => {
@@ -404,9 +403,8 @@ const FloatingLabelInput = ({ label, type = "text", error, required = false, ...
         {...props}
       />
       <motion.label
-        className={`absolute left-3 sm:left-4 pointer-events-none transition-all duration-200 bg-white px-1 ${
-          error ? "text-red-500" : focused ? "text-primary" : "text-gray-500"
-        }`}
+        className={`absolute left-3 sm:left-4 pointer-events-none transition-all duration-200 bg-white px-1 ${error ? "text-red-500" : focused ? "text-primary" : "text-gray-500"
+          }`}
         animate={{
           top: focused || hasValue ? "-0.6rem" : "0.85rem",
           fontSize: focused || hasValue ? "0.7rem" : "0.9rem",
@@ -439,12 +437,13 @@ const ContactForm = () => {
     mobile: "",
     message: "",
   })
-  const [errors, setErrors] = useState({})
+  type FormErrors = { name?: string; email?: string; mobile?: string; message?: string; submit?: string }
+  const [errors, setErrors] = useState<FormErrors>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
 
   const validateForm = () => {
-    const newErrors = {}
+    const newErrors: FormErrors = {}
 
     if (!formData.name.trim()) {
       newErrors.name = "Name is required"
@@ -471,114 +470,114 @@ const ContactForm = () => {
     return Object.keys(newErrors).length === 0
   }
 
-//   const handleSubmit = async (e) => {
-//     e.preventDefault()
+  //   const handleSubmit = async (e) => {
+  //     e.preventDefault()
 
-//     // if (!validateForm()) return
-    
-//     setIsSubmitting(true)
-//     console.log("Form Data submitting")
+  //     // if (!validateForm()) return
 
-//   const payload = new URLSearchParams();
-//   payload.append("entry.716092560", formData.name);
-//   payload.append("entry.1416580929", formData.email);
-//   payload.append("entry.938952601", formData.mobile);
-//   payload.append("entry.1864823807", formData.message);
+  //     setIsSubmitting(true)
+  //     console.log("Form Data submitting")
 
-//     // Submit to Google Forms
-// fetch(
-//       "https://docs.google.com/forms/d/e/1FAIpQLSfAiiMhMx4nVVveM_3sl-CxIhK38c8mDP1-8Ih05BlT6ykr7Q/formResponse",
-//       {
-//         method: "POST",
-//         mode: "no-cors",
-//         headers: {
-//           "Content-Type": "application/x-www-form-urlencoded",
-//         },
-//         body: payload.toString(),
-//       }
-//     ).then((response)=>{
-//       console.log(response)
-//     }).catch((error)=>{
-//       console.error("Error submitting form:", error)
-//       setIsSubmitting(false)
-//       setErrors({ submit: "Failed to send message. Please try again later." })
-//       return
-//     })
+  //   const payload = new URLSearchParams();
+  //   payload.append("entry.716092560", formData.name);
+  //   payload.append("entry.1416580929", formData.email);
+  //   payload.append("entry.938952601", formData.mobile);
+  //   payload.append("entry.1864823807", formData.message);
 
-//     setTimeout(() => {
-//       setIsSubmitting(false)
-//       setIsSubmitted(true)
-//     }, 1000)
+  //     // Submit to Google Forms
+  // fetch(
+  //       "https://docs.google.com/forms/d/e/1FAIpQLSfAiiMhMx4nVVveM_3sl-CxIhK38c8mDP1-8Ih05BlT6ykr7Q/formResponse",
+  //       {
+  //         method: "POST",
+  //         mode: "no-cors",
+  //         headers: {
+  //           "Content-Type": "application/x-www-form-urlencoded",
+  //         },
+  //         body: payload.toString(),
+  //       }
+  //     ).then((response)=>{
+  //       console.log(response)
+  //     }).catch((error)=>{
+  //       console.error("Error submitting form:", error)
+  //       setIsSubmitting(false)
+  //       setErrors({ submit: "Failed to send message. Please try again later." })
+  //       return
+  //     })
+
+  //     setTimeout(() => {
+  //       setIsSubmitting(false)
+  //       setIsSubmitted(true)
+  //     }, 1000)
 
 
 
-//     // Reset form after 3 seconds
-//     setTimeout(() => {
-//       setIsSubmitted(false)
-//       setFormData({
-//         name: "",
-//         email: "",
-//         mobile: "",
-//         message: "",
-//       })
-//     }, 3000)
-//   }
+  //     // Reset form after 3 seconds
+  //     setTimeout(() => {
+  //       setIsSubmitted(false)
+  //       setFormData({
+  //         name: "",
+  //         email: "",
+  //         mobile: "",
+  //         message: "",
+  //       })
+  //     }, 3000)
+  //   }
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  setIsSubmitting(true);
-  console.log("Form Data submitting");
+    setIsSubmitting(true);
+    console.log("Form Data submitting");
 
-  const payload = new URLSearchParams();
-  payload.append("entry.39892063", formData.name);         // Name
-  payload.append("entry.1514859323", formData.email);       // Email
-  payload.append("entry.1913273510", formData.mobile);      // Phone
-  payload.append("entry.1603319694", formData.message);     // Message
+    const payload = new URLSearchParams();
+    payload.append("entry.39892063", formData.name);         // Name
+    payload.append("entry.1514859323", formData.email);       // Email
+    payload.append("entry.1913273510", formData.mobile);      // Phone
+    payload.append("entry.1603319694", formData.message);     // Message
 
-  // Submit to Google Forms
-  fetch(
-    "https://docs.google.com/forms/d/e/1FAIpQLSd7ZCf-jDG-Drhdfm_hxViScEqo-7By_E8ttBEzKKi6RoiCpg/formResponse",
-    {
-      method: "POST",
-      mode: "no-cors",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: payload.toString(),
-    }
-  )
-    .then((response) => {
-      console.log("Form submitted (opaque):", response);
-    })
-    .catch((error) => {
-      console.error("Error submitting form:", error);
-      setIsSubmitting(false);
-      setErrors({
-        submit: "Failed to send message. Please try again later.",
+    // Submit to Google Forms
+    fetch(
+      "https://docs.google.com/forms/d/e/1FAIpQLSd7ZCf-jDG-Drhdfm_hxViScEqo-7By_E8ttBEzKKi6RoiCpg/formResponse",
+      {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: payload.toString(),
+      }
+    )
+      .then((response) => {
+        console.log("Form submitted (opaque):", response);
+      })
+      .catch((error) => {
+        console.error("Error submitting form:", error);
+        setIsSubmitting(false);
+        setErrors({
+          submit: "Failed to send message. Please try again later.",
+        });
+        return;
       });
-      return;
-    });
 
-  setTimeout(() => {
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-  }, 1000);
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+    }, 1000);
 
-  // Reset form after 3 seconds
-  setTimeout(() => {
-    setIsSubmitted(false);
-    setFormData({
-      name: "",
-      email: "",
-      mobile: "",
-      message: "",
-    });
-  }, 3000);
-};
+    // Reset form after 3 seconds
+    setTimeout(() => {
+      setIsSubmitted(false);
+      setFormData({
+        name: "",
+        email: "",
+        mobile: "",
+        message: "",
+      });
+    }, 3000);
+  };
 
 
-  const handleChange = (field, value) => {
+  const handleChange = (field: "name" | "email" | "mobile" | "message", value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
     if (errors[field]) {
       setErrors((prev) => ({ ...prev, [field]: "" }))
@@ -611,33 +610,33 @@ const handleSubmit = async (e) => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
-          <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
-            <FloatingLabelInput
-              label="Your Name"
-              value={formData.name}
-              onChange={(e) => handleChange("name", e.target.value)}
-              error={errors.name}
-              required
-            />
-            <FloatingLabelInput
-              label="Your Email"
-              type="email"
-              value={formData.email}
-              onChange={(e) => handleChange("email", e.target.value)}
-              error={errors.email}
-              required
-            />
-          </div>
-            <FloatingLabelInput
-              label="Your Mobile Number"
-              type="tel"
-              value={formData.mobile}
-              onChange={(e) => handleChange("mobile", e.target.value)}
-              error={errors.mobile}
-              required
-            />
+      <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
+        <FloatingLabelInput
+          label="Your Name"
+          value={formData.name}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange("name", e.target.value)}
+          error={errors.name}
+          required
+        />
+        <FloatingLabelInput
+          label="Your Email"
+          type="email"
+          value={formData.email}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange("email", e.target.value)}
+          error={errors.email}
+          required
+        />
+      </div>
+      <FloatingLabelInput
+        label="Your Mobile Number"
+        type="tel"
+        value={formData.mobile}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange("mobile", e.target.value)}
+        error={errors.mobile}
+        required
+      />
 
-          {/* <div className="grid md:grid-cols-2 gap-6">
+      {/* <div className="grid md:grid-cols-2 gap-6">
             <div className="relative">
               <select
                 value={formData.projectType}
@@ -683,48 +682,46 @@ const handleSubmit = async (e) => {
             </div>
           </div> */}
 
-          <div className="relative">
-            <Textarea
-              placeholder="Tell us about your project... *"
-              rows={6}
-              value={formData.message}
-              onChange={(e) => handleChange("message", e.target.value)}
-              className={`bg-white border-2 ${
-                errors.message ? "border-red-300 focus:border-red-500" : "border-gray-200 focus:border-primary"
-              } rounded-2xl resize-none text-sm sm:text-base transition-colors duration-200 text-gray-800 w-full p-3 sm:p-4`}
-            />
-            <div className="absolute bottom-4 right-4 text-sm text-gray-400">{formData.message.length}/500</div>
-            {errors.message && (
-              <motion.p
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="text-red-500 text-sm mt-2 ml-1"
-              >
-                {errors.message}
-              </motion.p>
-            )}
-          </div>
-
-          <MagneticButton
-            type="submit"
-            disabled={isSubmitting}
-            className={`w-full ${
-              isSubmitting ? "bg-gray-400 cursor-not-allowed" : "bg-primary hover:bg-primary-dark"
-            } text-white font-semibold py-4 sm:py-5 rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl hover:shadow-primary/25 transition-all duration-300 group`}
+      <div className="relative">
+        <Textarea
+          placeholder="Tell us about your project... *"
+          rows={6}
+          value={formData.message}
+          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => handleChange("message", e.target.value)}
+          className={`bg-white border-2 ${errors.message ? "border-red-300 focus:border-red-500" : "border-gray-200 focus:border-primary"
+            } rounded-2xl resize-none text-sm sm:text-base transition-colors duration-200 text-gray-800 w-full p-3 sm:p-4`}
+        />
+        <div className="absolute bottom-4 right-4 text-sm text-gray-400">{formData.message.length}/500</div>
+        {errors.message && (
+          <motion.p
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-red-500 text-sm mt-2 ml-1"
           >
-            {isSubmitting ? (
-              <>
-                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-3"></div>
-                Sending Message...
-              </>
-            ) : (
-              <div className="flex items-center justify-center">
-                Send Message
-                <Send className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-              </div>
-            )}
-          </MagneticButton>
-        </form>
+            {errors.message}
+          </motion.p>
+        )}
+      </div>
+
+      <MagneticButton
+        type="submit"
+        disabled={isSubmitting}
+        className={`w-full ${isSubmitting ? "bg-gray-400 cursor-not-allowed" : "bg-primary hover:bg-primary-dark"
+          } text-white font-semibold py-4 sm:py-5 rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl hover:shadow-primary/25 transition-all duration-300 group`}
+      >
+        {isSubmitting ? (
+          <>
+            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-3"></div>
+            Sending Message...
+          </>
+        ) : (
+          <div className="flex items-center justify-center">
+            Send Message
+            <Send className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+          </div>
+        )}
+      </MagneticButton>
+    </form>
   )
 }
 
@@ -804,7 +801,7 @@ export default function HomePage() {
                   <motion.div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" />
                 </motion.a>
               ))}
-              
+
               {/* Social Links */}
               <div className="flex space-x-4 ml-4">
                 {/* <motion.a
@@ -832,7 +829,7 @@ export default function HomePage() {
                   whileHover={{ scale: 1.1 }}
                 >
                   <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                   </svg>
                 </motion.a>
                 <motion.a
@@ -846,8 +843,8 @@ export default function HomePage() {
                   whileHover={{ scale: 1.1 }}
                 >
                   <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.618 5.367 11.986 11.988 11.986s11.987-5.368 11.987-11.986C24.014 5.367 18.635.001 12.017.001zm5.568 16.791c-.001.264-.106.52-.292.706-.187.187-.442.292-.706.292H7.239c-.264 0-.52-.105-.706-.292a.994.994 0 01-.292-.706V7.239c0-.264.106-.52.292-.706.187-.187.442-.292.706-.292h9.348c.264 0 .52.105.706.292.187.187.292.442.292.706v9.552z"/>
-                    <path d="M12.017 7.075c-2.717 0-4.912 2.196-4.912 4.912s2.195 4.912 4.912 4.912 4.912-2.195 4.912-4.912-2.195-4.912-4.912-4.912zm0 8.072a3.16 3.16 0 01-3.16-3.16 3.16 3.16 0 013.16-3.16 3.16 3.16 0 013.16 3.16 3.16 3.16 0 01-3.16 3.16zM17.156 6.924c0 .22-.071.433-.2.6a.901.901 0 01-.6.2.901.901 0 01-.6-.2.901.901 0 01-.2-.6c0-.22.071-.433.2-.6a.901.901 0 01.6-.2c.22 0 .433.071.6.2.129.167.2.38.2.6z"/>
+                    <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.618 5.367 11.986 11.988 11.986s11.987-5.368 11.987-11.986C24.014 5.367 18.635.001 12.017.001zm5.568 16.791c-.001.264-.106.52-.292.706-.187.187-.442.292-.706.292H7.239c-.264 0-.52-.105-.706-.292a.994.994 0 01-.292-.706V7.239c0-.264.106-.52.292-.706.187-.187.442-.292.706-.292h9.348c.264 0 .52.105.706.292.187.187.292.442.292.706v9.552z" />
+                    <path d="M12.017 7.075c-2.717 0-4.912 2.196-4.912 4.912s2.195 4.912 4.912 4.912 4.912-2.195 4.912-4.912-2.195-4.912-4.912-4.912zm0 8.072a3.16 3.16 0 01-3.16-3.16 3.16 3.16 0 013.16-3.16 3.16 3.16 0 013.16 3.16 3.16 3.16 0 01-3.16 3.16zM17.156 6.924c0 .22-.071.433-.2.6a.901.901 0 01-.6.2.901.901 0 01-.6-.2.901.901 0 01-.2-.6c0-.22.071-.433.2-.6a.901.901 0 01.6-.2c.22 0 .433.071.6.2.129.167.2.38.2.6z" />
                   </svg>
                 </motion.a>
                 <motion.a
@@ -887,7 +884,7 @@ export default function HomePage() {
             </motion.div> */}
           </div>
         </div>
-        
+
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <motion.div
@@ -909,23 +906,23 @@ export default function HomePage() {
                     {item}
                   </a>
                 ))}
-                
+
                 {/* Mobile Social Links */}
                 <div className="flex space-x-4 pt-4 border-t border-gray-200">
                   <a href="https://wa.me/15551234567" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary">
                     <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" />
                     </svg>
                   </a>
                   <a href="https://www.linkedin.com/in/shrinav-66a234365?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary">
                     <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                     </svg>
                   </a>
                   <a href="https://www.instagram.com/shrinav._?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary">
                     <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.618 5.367 11.986 11.988 11.986s11.987-5.368 11.987-11.986C24.014 5.367 18.635.001 12.017.001zm5.568 16.791c-.001.264-.106.52-.292.706-.187.187-.442.292-.706.292H7.239c-.264 0-.52-.105-.706-.292a.994.994 0 01-.292-.706V7.239c0-.264.106-.52.292-.706.187-.187.442-.292.706-.292h9.348c.264 0 .52.105.706.292.187.187.292.442.292.706v9.552z"/>
-                      <path d="M12.017 7.075c-2.717 0-4.912 2.196-4.912 4.912s2.195 4.912 4.912 4.912 4.912-2.195 4.912-4.912-2.195-4.912-4.912-4.912zm0 8.072a3.16 3.16 0 01-3.16-3.16 3.16 3.16 0 013.16-3.16 3.16 3.16 0 013.16 3.16 3.16 3.16 0 01-3.16 3.16zM17.156 6.924c0 .22-.071.433-.2.6a.901.901 0 01-.6.2.901.901 0 01-.6-.2.901.901 0 01-.2-.6c0-.22.071-.433.2-.6a.901.901 0 01.6-.2c.22 0 .433.071.6.2.129.167.2.38.2.6z"/>
+                      <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.618 5.367 11.986 11.988 11.986s11.987-5.368 11.987-11.986C24.014 5.367 18.635.001 12.017.001zm5.568 16.791c-.001.264-.106.52-.292.706-.187.187-.442.292-.706.292H7.239c-.264 0-.52-.105-.706-.292a.994.994 0 01-.292-.706V7.239c0-.264.106-.52.292-.706.187-.187.442-.292.706-.292h9.348c.264 0 .52.105.706.292.187.187.292.442.292.706v9.552z" />
+                      <path d="M12.017 7.075c-2.717 0-4.912 2.196-4.912 4.912s2.195 4.912 4.912 4.912 4.912-2.195 4.912-4.912-2.195-4.912-4.912-4.912zm0 8.072a3.16 3.16 0 01-3.16-3.16 3.16 3.16 0 013.16-3.16 3.16 3.16 0 013.16 3.16 3.16 3.16 0 01-3.16 3.16zM17.156 6.924c0 .22-.071.433-.2.6a.901.901 0 01-.6.2.901.901 0 01-.6-.2.901.901 0 01-.2-.6c0-.22.071-.433.2-.6a.901.901 0 01.6-.2c.22 0 .433.071.6.2.129.167.2.38.2.6z" />
                     </svg>
                   </a>
                   <a href="mailto:shrinavjee@gmail.com" className="text-gray-600 hover:text-primary">
@@ -986,9 +983,10 @@ export default function HomePage() {
                 View Projects
               </MagneticButton> */}
 
-              <Link href="#projects" className="w-full sm:w-auto">
+              {/* Change href from "#projects" to "/start-project" */}
+              <Link href="/start-project" className="w-full sm:w-auto">
                 <MagneticButton className="bg-primary border-2 flex justify-center border-primary text-white hover:bg-primary hover:text-white font-semibold px-6 sm:px-10 py-4 sm:py-5 text-base sm:text-lg rounded-2xl shadow-lg group transition-all duration-300 w-full">
-                <Rocket className="mr-2 sm:mr-3 h-5 sm:h-6 w-5 sm:w-6 group-hover:scale-110 transition-transform duration-300 " />
+                  <Rocket className="mr-2 sm:mr-3 h-5 sm:h-6 w-5 sm:w-6 group-hover:scale-110 transition-transform duration-300 " />
                   View Projects
                 </MagneticButton>
               </Link>
@@ -1026,8 +1024,8 @@ export default function HomePage() {
                   <div className="p-6 relative">
                     {/* Gradient overlay on hover */}
                     <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
-                    
-                    <motion.div 
+
+                    <motion.div
                       className={`w-14 h-14 mx-auto mb-4 bg-gradient-to-br ${service.gradient} rounded-2xl flex items-center justify-center shadow-md`}
                       whileHover={{ scale: 1.1 }}
                       animate={{ y: [0, -5, 0] }}
@@ -1035,7 +1033,7 @@ export default function HomePage() {
                     >
                       <service.icon className="h-7 w-7 text-white" />
                     </motion.div>
-                    
+
                     <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">{service.title}</h3>
                   </div>
                 </motion.div>
@@ -1224,10 +1222,10 @@ export default function HomePage() {
                 <h4 className="text-2xl font-bold text-gray-900 mb-8">Follow our journey</h4>
                 <div className="grid grid-cols-2 gap-4">
                   {[
-                    { name: "WhatsApp", href: "https://wa.me/+919016771335", svg: <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg> },
-                    { name: "LinkedIn", href: "https://www.linkedin.com/in/shrinav-66a234365?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", svg: <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> },
-                    { name: "Facebook", href: "https://facebook.com/shrinav", svg: <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> },
-                    { name: "Instagram", href: "https://www.instagram.com/shrinav._?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", svg: <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.618 5.367 11.986 11.988 11.986s11.987-5.368 11.987-11.986C24.014 5.367 18.635.001 12.017.001zm5.568 16.791c-.001.264-.106.52-.292.706-.187.187-.442.292-.706.292H7.239c-.264 0-.52-.105-.706-.292a.994.994 0 01-.292-.706V7.239c0-.264.106-.52.292-.706.187-.187.442-.292.706-.292h9.348c.264 0 .52.105.706.292.187.187.292.442.292.706v9.552z"/><path d="M12.017 7.075c-2.717 0-4.912 2.196-4.912 4.912s2.195 4.912 4.912 4.912 4.912-2.195 4.912-4.912-2.195-4.912-4.912-4.912zm0 8.072a3.16 3.16 0 01-3.16-3.16 3.16 3.16 0 013.16-3.16 3.16 3.16 0 013.16 3.16 3.16 3.16 0 01-3.16 3.16zM17.156 6.924c0 .22-.071.433-.2.6a.901.901 0 01-.6.2.901.901 0 01-.6-.2.901.901 0 01-.2-.6c0-.22.071-.433.2-.6a.901.901 0 01.6-.2c.22 0 .433.071.6.2.129.167.2.38.2.6z"/></svg> },
+                    { name: "WhatsApp", href: "https://wa.me/+919016771335", svg: <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" /></svg> },
+                    { name: "LinkedIn", href: "https://www.linkedin.com/in/shrinav-66a234365?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", svg: <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg> },
+                    { name: "Facebook", href: "https://facebook.com/shrinav", svg: <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg> },
+                    { name: "Instagram", href: "https://www.instagram.com/shrinav._?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", svg: <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.618 5.367 11.986 11.988 11.986s11.987-5.368 11.987-11.986C24.014 5.367 18.635.001 12.017.001zm5.568 16.791c-.001.264-.106.52-.292.706-.187.187-.442.292-.706.292H7.239c-.264 0-.52-.105-.706-.292a.994.994 0 01-.292-.706V7.239c0-.264.106-.52.292-.706.187-.187.442-.292.706-.292h9.348c.264 0 .52.105.706.292.187.187.292.442.292.706v9.552z" /><path d="M12.017 7.075c-2.717 0-4.912 2.196-4.912 4.912s2.195 4.912 4.912 4.912 4.912-2.195 4.912-4.912-2.195-4.912-4.912-4.912zm0 8.072a3.16 3.16 0 01-3.16-3.16 3.16 3.16 0 013.16-3.16 3.16 3.16 0 013.16 3.16 3.16 3.16 0 01-3.16 3.16zM17.156 6.924c0 .22-.071.433-.2.6a.901.901 0 01-.6.2.901.901 0 01-.6-.2.901.901 0 01-.2-.6c0-.22.071-.433.2-.6a.901.901 0 01.6-.2c.22 0 .433.071.6.2.129.167.2.38.2.6z" /></svg> },
                   ].map((social, index) => (
                     <motion.a
                       key={social.name}
@@ -1267,10 +1265,10 @@ export default function HomePage() {
               </p>
               <div className="flex space-x-4">
                 {[
-                  { name: "WhatsApp", href: "https://wa.me/+919016771335", svg: <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg> },
-                  { name: "LinkedIn", href: "https://www.linkedin.com/in/shrinav-66a234365?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", svg: <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> },
-                  { name: "Facebook", href: "https://facebook.com/shrinav", svg: <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> },
-                  { name: "Instagram", href: "https://www.instagram.com/shrinav._?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", svg: <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.618 5.367 11.986 11.988 11.986s11.987-5.368 11.987-11.986C24.014 5.367 18.635.001 12.017.001zm5.568 16.791c-.001.264-.106.52-.292.706-.187.187-.442.292-.706.292H7.239c-.264 0-.52-.105-.706-.292a.994.994 0 01-.292-.706V7.239c0-.264.106-.52.292-.706.187-.187.442-.292.706-.292h9.348c.264 0 .52.105.706.292.187.187.292.442.292.706v9.552z"/><path d="M12.017 7.075c-2.717 0-4.912 2.196-4.912 4.912s2.195 4.912 4.912 4.912 4.912-2.195 4.912-4.912-2.195-4.912-4.912-4.912zm0 8.072a3.16 3.16 0 01-3.16-3.16 3.16 3.16 0 013.16-3.16 3.16 3.16 0 013.16 3.16 3.16 3.16 0 01-3.16 3.16zM17.156 6.924c0 .22-.071.433-.2.6a.901.901 0 01-.6.2.901.901 0 01-.6-.2.901.901 0 01-.2-.6c0-.22.071-.433.2-.6a.901.901 0 01.6-.2c.22 0 .433.071.6.2.129.167.2.38.2.6z"/></svg> },
+                  { name: "WhatsApp", href: "https://wa.me/+919016771335", svg: <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" /></svg> },
+                  { name: "LinkedIn", href: "https://www.linkedin.com/in/shrinav-66a234365?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", svg: <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg> },
+                  { name: "Facebook", href: "https://facebook.com/shrinav", svg: <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg> },
+                  { name: "Instagram", href: "https://www.instagram.com/shrinav._?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", svg: <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.618 5.367 11.986 11.988 11.986s11.987-5.368 11.987-11.986C24.014 5.367 18.635.001 12.017.001zm5.568 16.791c-.001.264-.106.52-.292.706-.187.187-.442.292-.706.292H7.239c-.264 0-.52-.105-.706-.292a.994.994 0 01-.292-.706V7.239c0-.264.106-.52.292-.706.187-.187.442-.292.706-.292h9.348c.264 0 .52.105.706.292.187.187.292.442.292.706v9.552z" /><path d="M12.017 7.075c-2.717 0-4.912 2.196-4.912 4.912s2.195 4.912 4.912 4.912 4.912-2.195 4.912-4.912-2.195-4.912-4.912-4.912zm0 8.072a3.16 3.16 0 01-3.16-3.16 3.16 3.16 0 013.16-3.16 3.16 3.16 0 013.16 3.16 3.16 3.16 0 01-3.16 3.16zM17.156 6.924c0 .22-.071.433-.2.6a.901.901 0 01-.6.2.901.901 0 01-.6-.2.901.901 0 01-.2-.6c0-.22.071-.433.2-.6a.901.901 0 01.6-.2c.22 0 .433.071.6.2.129.167.2.38.2.6z" /></svg> },
                 ].map((social, index) => (
                   <motion.a
                     key={social.name}
@@ -1302,7 +1300,7 @@ export default function HomePage() {
               <ul className="space-y-3 text-gray-400">
                 {["About Us", "Services", "Projects", "Blog"].map((item) => (
                   <li key={item}>
-                    <Link href={"#"+item.toLowerCase()} className="hover:text-primary transition-colors">
+                    <Link href={"#" + item.toLowerCase()} className="hover:text-primary transition-colors">
                       {item}
                     </Link>
                   </li>
