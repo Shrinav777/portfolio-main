@@ -26,14 +26,8 @@ import {
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
-import siteData from "@/data/siteData.json"
 
-export async function generateStaticParams() {
-  // This tells Next.js exactly which IDs exist so it can pre-build the HTML files
-  return siteData.projects.map((project: any) => ({
-    id: project.id.toString(),
-  }))
-}
+
 
 // Enhanced Floating Label Input with validation
 const FloatingLabelInput = ({ label, type = "text", error, required = false, ...props }: any) => {
