@@ -4,7 +4,24 @@ import { Badge, Card, CardContent } from "./UIComponents"
 import { getIcon } from "./IconComponents"
 import { motion } from "framer-motion"
 
-export default function ProjectsGrid({ data = { projects: [] } }) {
+interface Project {
+  id: number | string;
+  title: string;
+  description: string;
+  image: string;
+  category: string;
+  metrics: {
+    logo?: string;
+    year?: string;
+    rating?: string;
+  };
+}
+
+interface ProjectsData {
+  projects: Project[];
+}
+
+export default function ProjectsGrid({ data = { projects: [] } }: { data?: ProjectsData }) {
   const ArrowRightIcon = getIcon("arrow-right")
 
   return (
